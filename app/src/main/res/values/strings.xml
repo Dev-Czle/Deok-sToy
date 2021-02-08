@@ -18,4 +18,27 @@
     <string name="locale_china">zh_cn</string>
     <string name="unknown_country">Unknown country %1$s</string>
     <string name="no_country_extra">No country string</string>
+
+    <string name="add_default">
+        여기에 더하기 결과값이 표시됩니다.
+    </string>
+
+    <string name="subtract_default">
+        여기에 빼기 결과값이 표시됩니다.
+    </string>
+
+    <string name="divide_default">
+        여기에 나누기 결과값이 표시됩니다.
+    </string>
+
+    <string name="multiply_default">
+        여기에 곱하기 결과값이 표시됩니다.
+    </string>
+
+    <string name="error_default">
+        문제가 있다면 여기에 표시됩니다.
+    </string>
+
+
+
 </resources>
