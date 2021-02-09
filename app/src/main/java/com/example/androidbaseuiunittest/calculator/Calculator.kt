@@ -1,5 +1,7 @@
 package com.example.androidbaseuiunittest.calculator
 
+import androidx.core.text.isDigitsOnly
+
 class Calculator {
     private lateinit var myNumbers: CalculatorDto // Dto 클래스, Java 의 Getter/Setter 의 역할을 해준다
     private var addResult: Int? = null // 더하기 결과값
@@ -23,22 +25,27 @@ class Calculator {
             )
         }
     }
+
     // 더하기 연산 함수
     private fun add(): Int {
         return myNumbers.firstNumber!! + myNumbers.secondNumber!!
     }
+
     // 빼기 연산 함수
     private fun subtract(): Int {
         return myNumbers.firstNumber!! - myNumbers.secondNumber!!
     }
+
     // 곱하기 연산 함수
     private fun multiply(): Int {
         return myNumbers.firstNumber!! * myNumbers.secondNumber!!
     }
+
     // 나누기 연산 함수
     private fun divide(): Float {
         return myNumbers.firstNumber!!.toFloat() / myNumbers.secondNumber!!.toFloat()
     }
+
     // 각각의 연산에 대한 결과값
     fun getAddResult() = addResult
     fun getSubtractResult() = subtractResult
@@ -51,6 +58,18 @@ class Calculator {
             return false
         }
         return true
+    }
+
+    // 나의 숫자들이 해당 숫자를 리턴, 그게 아니라면 예외를 발생시킨다.
+    fun checkMyNumberIsNumber(number: String?): Int? {
+        if (number == null) {
+            return null
+        }
+        if (number.isDigitsOnly()) {
+            return number.toIntOrNull()
+        } else {
+            throw IllegalAccessException("$number is not Number")
+        }
     }
 }
 

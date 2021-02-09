@@ -57,17 +57,19 @@ class CalculatorUnitTest {
 
     @Test
     fun `숫자가 아닌 값이 들어올 경우 예외처리가 되는지에 대한 테스트`() {
+        // 예외로 처리하였기에 Try-catch 를 이용하여 catch 에 내가 미리 입력한 Exception Message 가 잘 들어오는 지 확인
         try {
-            val expectedFirstNumber = 11
-            val expectedSecondNumber = "Hello World".toInt()
+            // 숫자를 검증하는 코드가 생겼기에, 기대값이 달라짐
+            val expectedFirstNumber = calculator.checkMyNumberIsNumber("11")
+            val expectedSecondNumber = calculator.checkMyNumberIsNumber("Hello World")
             `when`(calculatorMockData.firstNumber).thenReturn(expectedFirstNumber)
             `when`(calculatorMockData.secondNumber).thenReturn(expectedSecondNumber)
             assertNotNull(calculatorMockData.firstNumber)
             assertNotNull(calculatorMockData.secondNumber)
-            `when`(calculator.doCalculate(calculatorMockData)).thenThrow(Exception("not number"))
+            `when`(calculator.doCalculate(calculatorMockData))
         } catch (e: Exception) {
-            assertEquals(e.message, "For input string: \"Hello World\"")
+            // Exception message 와 에러 발생 시 나타나는 메시지가 일치하는지 어셜션 하라
+            assertTrue(e.message!!.contains("is not Number"))
         }
-
     }
 }
