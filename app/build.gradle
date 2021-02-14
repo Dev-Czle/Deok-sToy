@@ -16,7 +16,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     testOptions {
-        unitTests.returnDefaultValues = true
+            unitTests.returnDefaultValues = true
+            unitTests.includeAndroidResources = true
     }
 
     buildTypes {
@@ -53,6 +54,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.3.0'
+    testImplementation 'org.robolectric:robolectric:4.4'
 
     //TestForAndroid
     testImplementation 'org.mockito:mockito-inline:2.13.0'
