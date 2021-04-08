@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:id="@+id/infinitePic"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/infiniteTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="타이틀 예시"
+        app:layout_constraintBottom_toTopOf="@+id/infiniteExplain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/infinitePic"
+        app:layout_constraintTop_toTopOf="@+id/infinitePic" />
+
+    <TextView
+        android:id="@+id/infiniteExplain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="설명 예시"
+        app:layout_constraintEnd_toEndOf="@id/infiniteTitle"
+        app:layout_constraintStart_toStartOf="@+id/infiniteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/infiniteTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,7 @@
 package com.example.androidbaseuiunittest
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.example.androidbaseuiunittest.calculator.CalculatorActivity
 import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.runner.RunWith
-import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 
 /**
@@ -18,9 +13,5 @@ import org.robolectric.RobolectricTestRunner
 class ExampleUnitTest {
     @Test
     fun test(){
-        val activityRule = ActivityScenarioRule(CalculatorActivity::class.java)
-        activityRule.scenario.onActivity {
-            
-        }
     }
 }

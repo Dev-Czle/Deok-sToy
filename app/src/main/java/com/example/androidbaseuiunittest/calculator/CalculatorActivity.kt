@@ -2,8 +2,6 @@ package com.example.androidbaseuiunittest.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.core.text.isDigitsOnly
 import com.example.androidbaseuiunittest.R
 import kotlinx.android.synthetic.main.activity_calculator.*
 
@@ -11,7 +9,7 @@ class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
-        val calculator = Calculator()
+        val calculator = CalculatorLegacy()
 
         // 버튼을 클릭했을 때
         doCalculate.setOnClickListener {
