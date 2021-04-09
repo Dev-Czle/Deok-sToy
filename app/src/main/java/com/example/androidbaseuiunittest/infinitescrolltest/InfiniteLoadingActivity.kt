@@ -78,7 +78,7 @@ class InfiniteLoadingActivity : AppCompatActivity() {
         infiniteLoadingAdapter.notifyItemInserted(items.size - 1)
         val handler = Handler()
         handler.postDelayed({
-            items.removeAt(items.lastIndex)
+            infiniteLoadingAdapter.deleteData()
             val scrollPosition: Int = items.size
             infiniteLoadingAdapter.notifyItemRemoved(scrollPosition)
             var currentSize = scrollPosition
