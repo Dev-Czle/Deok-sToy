@@ -64,12 +64,10 @@ class InfiniteLoadingActivity : AppCompatActivity() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                if (!isLoading) {
-                    if (layoutManager != null && layoutManager.findLastCompletelyVisibleItemPosition() == items.size - 1) {
-                        //리스트 마지막
-                        loadMore()
-                        isLoading = true
-                    }
+                if (!isLoading && layoutManager != null && layoutManager.findLastCompletelyVisibleItemPosition() == items.size - 2) {
+                    //리스트 마지막
+                    loadMore()
+                    isLoading = true
                 }
             }
         })
@@ -80,7 +78,7 @@ class InfiniteLoadingActivity : AppCompatActivity() {
         infiniteLoadingAdapter.notifyItemInserted(items.size - 1)
         val handler = Handler()
         handler.postDelayed({
-            items.removeAt(items.size - 1)
+            items.removeAt(items.lastIndex)
             val scrollPosition: Int = items.size
             infiniteLoadingAdapter.notifyItemRemoved(scrollPosition)
             var currentSize = scrollPosition
@@ -91,8 +89,6 @@ class InfiniteLoadingActivity : AppCompatActivity() {
             }
             infiniteLoadingAdapter.notifyDataSetChanged()
             isLoading = false
-        }, 2000)
+        }, 500)
     }
-
-
 }
